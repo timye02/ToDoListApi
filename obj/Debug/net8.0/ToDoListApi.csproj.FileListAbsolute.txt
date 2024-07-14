@@ -32,3 +32,4 @@
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.genruntimeconfig.cache
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ref/ToDoListApi.dll
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.sourcelink.json
