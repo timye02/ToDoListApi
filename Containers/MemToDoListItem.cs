@@ -25,7 +25,7 @@ namespace ToDoListApi.Containers
             return item;
         }
 
-        public void Add(ToDoListItem item, int listId)
+        public bool Add(ToDoListItem item, int listId)
         {
             var list = _toDoListContainer.GetByList_Id(listId);
             if (list != null)
@@ -33,7 +33,9 @@ namespace ToDoListApi.Containers
                 // see if item count works and see if u want it to rank then by priority
                 item.Id = list.Items.Count;
                 list.Items.Add(item);
+                return true;
             }
+            return false;
         }
 
         public ToDoListItem Complete(int id, int listId)

@@ -17,14 +17,14 @@ namespace ToDoListApi.Controllers
         }
 
         [HttpPost("{listId}")]
-        [SwaggerOperation(Summary = "Add a new item to a To-Do list", Description = "Adds a new item to a specific To-Do list.")]
-        public ActionResult Add(int listId, ToDoListItem item)
+        [SwaggerOperation(Summary = "Add a new item to a To-Do list (inputting id does not matter)", Description = "Adds a new item to a specific To-Do list.")]
+        public ActionResult Add(ToDoListItem item, int listId)
         {
             // maybe implement priority
-            _container.Add(item, listId);
-
+            bool is_success = _container.Add(item, listId);
             // Returns the newly added item
-            return CreatedAtAction(nameof(Get), new { id = item.Id, listId = listId }, item);
+            if (is_success) return CreatedAtAction(nameof(Get), new { id = item.Id, listId = listId }, item);
+            return NotFound();
         }
 
         [HttpGet("{id}/{listId}")]
@@ -32,7 +32,7 @@ namespace ToDoListApi.Controllers
         public ActionResult<ToDoListItem> Get(int id, int listId)
         {
             var item = _container.GetByList_Item_Id(id, listId);
-            if (item == null) return BadRequest();
+            if (item == null) return NotFound();
 
             // Returns the item
             return Ok(item);
@@ -44,7 +44,7 @@ namespace ToDoListApi.Controllers
         public ActionResult Complete(int id, int listId)
         {
             var new_item = _container.Complete(id, listId);
-            if (new_item == null) return BadRequest();
+            if (new_item == null) return NotFound();
 
             // Returns the newly completed item
             return Ok(new_item);
@@ -55,7 +55,7 @@ namespace ToDoListApi.Controllers
         public ActionResult Update(int id, ToDoListItem item, int listId)
         {
             var new_item = _container.Update(item, listId);
-            if (new_item == null) return BadRequest();
+            if (new_item == null) return NotFound();
 
             // Returns the newly updated item
             return Ok(new_item);
@@ -66,9 +66,9 @@ namespace ToDoListApi.Controllers
         [SwaggerOperation(Summary = "Delete a To-Do list item", Description = "Deletes a specific To-Do list item by its ID and list ID.")]
         public ActionResult Delete(int id, int listId)
         {
-            bool is_succssful = _container.Delete(id, listId);
-            if (is_succssful) return NoContent();
-            return BadRequest();
+            bool is_successful = _container.Delete(id, listId);
+            if (is_successful) return NoContent();
+            return NotFound();
         }
     }
 }

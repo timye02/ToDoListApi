@@ -35,10 +35,9 @@ namespace ToDoListApi.Controllers
 
 
         [HttpPost]
-        [SwaggerOperation(Summary = "Create a new To-Do list", Description = "Creates a new To-Do list.")]
+        [SwaggerOperation(Summary = "Create a new To-Do list (inputting id does not matter)", Description = "Creates a new To-Do list.")]
         public ActionResult Add(ToDoList list)
         {
-            // maybe add a title to the list
             _container.Add(list);
 
             // Returns the newly created To-Do list
@@ -49,17 +48,19 @@ namespace ToDoListApi.Controllers
         [SwaggerOperation(Summary = "Update an existing To-Do list", Description = "Updates an existing To-Do list.")]
         public ActionResult Update(int id, ToDoList list)
         {
-            if (id != list.Id) return BadRequest();
+            if (id != list.Id) return NotFound();
             _container.Update(list);
 
             // Returns the updated To-Do list
-            return Ok(_container.GetByList_Id(id));
+            return CreatedAtAction(nameof(Get), new { id = list.Id }, list);
         }
 
         [HttpDelete("{id}")]
         [SwaggerOperation(Summary = "Delete a To-Do list", Description = "Deletes a specific To-Do list by its ID.")]
         public ActionResult Delete(int id)
         {
+            var list = _container.GetByList_Id(id);
+            if (list == null) return NotFound();
             _container.Delete(id);
 
             // Returns the rest of the lists
