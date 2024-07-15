@@ -9,8 +9,12 @@ namespace ToDoListApi.Containers
         // Returns all to-do lists in the repository
         public IEnumerable<ToDoList> GetAll() => _toDoLists;
 
-        //Returns the to-do list with the specified id, or null if no such list exists.
-        public ToDoList GetByList_Id(int id) => _toDoLists.FirstOrDefault(l => l.Id == id);
+        //Returns the to-do list with the specified id, or null if no such to-do list exists.
+        public ToDoList GetByList_Id(int id)
+        {
+            var toDoList = _toDoLists.Find(l => l.Id == id);
+            return toDoList;
+        }
 
         public void Add(ToDoList list)
         {

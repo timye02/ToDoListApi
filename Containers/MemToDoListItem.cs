@@ -10,17 +10,19 @@ namespace ToDoListApi.Containers
         {
             _toDoListContainer = toDoListContainer;
         }
-        
+
         // Returns the item object at id and listId
         public ToDoListItem GetByList_Item_Id(int id, int listId)
         {
             var list = _toDoListContainer.GetByList_Id(listId);
-            var item = list?.Items.FirstOrDefault(i => i.Id == id);
-            if (item != null)
+            ToDoListItem item = null;
+
+            if (list != null && list.Items != null)
             {
-                return item;
+                item = list.Items.FirstOrDefault(i => i.Id == id);
             }
-            return null;
+
+            return item;
         }
 
         public void Add(ToDoListItem item, int listId)
@@ -57,14 +59,20 @@ namespace ToDoListApi.Containers
             return null;
         }
 
-        public void Delete(int id, int listId)
+        public bool Delete(int id, int listId)
         {
             var list = _toDoListContainer.GetByList_Id(listId);
-            var item = list?.Items.FirstOrDefault(i => i.Id == id);
-            if (item != null)
+            ToDoListItem item = null;
+
+            if (list != null && list.Items != null)
             {
-                list.Items.Remove(item);
+                item = list.Items.FirstOrDefault(i => i.Id == id);
+                if (item != null){
+                    list.Items.Remove(item);
+                    return true; // removed successfully 
+                }
             }
+            return false;
         }
     }
 }

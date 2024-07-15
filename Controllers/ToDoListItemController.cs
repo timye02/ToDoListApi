@@ -66,8 +66,9 @@ namespace ToDoListApi.Controllers
         [SwaggerOperation(Summary = "Delete a To-Do list item", Description = "Deletes a specific To-Do list item by its ID and list ID.")]
         public ActionResult Delete(int id, int listId)
         {
-            _container.Delete(id, listId);
-            return NoContent();
+            bool is_succssful = _container.Delete(id, listId);
+            if (is_succssful) return NoContent();
+            return BadRequest();
         }
     }
 }

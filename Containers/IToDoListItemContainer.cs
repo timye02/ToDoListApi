@@ -9,6 +9,6 @@ namespace ToDoListApi.Containers
         void Add(ToDoListItem item, int listId);
         ToDoListItem Complete(int id, int listId);
         ToDoListItem Update(ToDoListItem item, int listId);
-        void Delete(int id, int listId);
+        bool Delete(int id, int listId);
     }
 }
