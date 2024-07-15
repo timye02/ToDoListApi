@@ -6,8 +6,10 @@ namespace ToDoListApi.Containers
     {
         private readonly List<ToDoList> _toDoLists = new List<ToDoList>();
 
+        // Returns all to-do lists in the repository
         public IEnumerable<ToDoList> GetAll() => _toDoLists;
 
+        //Returns the to-do list with the specified id, or null if no such list exists.
         public ToDoList GetByList_Id(int id) => _toDoLists.FirstOrDefault(l => l.Id == id);
 
         public void Add(ToDoList list)
@@ -21,7 +23,7 @@ namespace ToDoListApi.Containers
             var existingList = GetByList_Id(list.Id);
             if (existingList != null)
             {
-                existingList.Name = list.Name;
+                existingList.Title = list.Title;
                 existingList.Items = list.Items;
             }
         }

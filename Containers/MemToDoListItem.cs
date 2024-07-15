@@ -11,16 +11,18 @@ namespace ToDoListApi.Containers
             _toDoListContainer = toDoListContainer;
         }
 
-        public ToDoListItem SearchByItem_Id(int id)
-        {
-            foreach (var list in _toDoListContainer.GetAll())
-            {
-                var item = list.Items.FirstOrDefault(i => i.Id == id);
-                if (item != null) return item;
-            }
-            return null;
-        }
+        // // Returns the 
+        // public ToDoListItem SearchByItem_Id(int id)
+        // {
+        //     foreach (var list in _toDoListContainer.GetAll())
+        //     {
+        //         var item = list.Items.FirstOrDefault(i => i.Id == id);
+        //         if (item != null) return item;
+        //     }
+        //     return null;
+        // }
 
+        // Returns the item object at id and listId
         public ToDoListItem GetByList_Item_Id(int id, int listId)
         {
             var list = _toDoListContainer.GetByList_Id(listId);
@@ -39,12 +41,13 @@ namespace ToDoListApi.Containers
             {
                 // see if item count works and see if u want it to rank then by priority
                 item.Id = list.Items.Count;
+                list.Items.Add(item);
             }
         }
 
-        public void Update(ToDoListItem item)
+        public void Update(ToDoListItem item, int listId)
         {
-            var existingItem = SearchByItem_Id(item.Id);
+            var existingItem = GetByList_Item_Id(item.Id, listId);
             if (existingItem != null)
             {
                 existingItem.Description = item.Description;

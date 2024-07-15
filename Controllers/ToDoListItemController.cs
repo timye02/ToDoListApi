@@ -24,7 +24,7 @@ namespace ToDoListApi.Controllers
             // maybe make space for items
             // maybe implement priority
             _container.Add(item, listId);
-            return CreatedAtAction(nameof(Get), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(Get), new { id = item.Id, listId = listId }, item);
 
             //change how u print the lists out (maybe numbered list)
         }
@@ -39,13 +39,13 @@ namespace ToDoListApi.Controllers
         }
 
 
-        [HttpPut("{id}")]
-        [SwaggerOperation(Summary = "Update a To-Do list item", Description = "Updates a specific To-Do list item.")]
-        public ActionResult Update(int id, ToDoListItem item)
+        [HttpPut("{id}/{listId}")]
+        [SwaggerOperation(Summary = "Update a To-Do list item", Description = "Updates a specific To-Do list item by its list and item ID.")]
+        public ActionResult Update(int id, ToDoListItem item, int listId)
         {
             // make items completed
             if (id != item.Id) return BadRequest();
-            _container.Update(item);
+            _container.Update(item, listId);
             return NoContent();
         }
 

@@ -1,10 +1,3 @@
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.csproj.AssemblyReference.cache
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.GeneratedMSBuildEditorConfig.editorconfig
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.AssemblyInfoInputs.cache
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.AssemblyInfo.cs
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.csproj.CoreCompileInputs.cache
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.MvcApplicationPartsAssemblyInfo.cs
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.MvcApplicationPartsAssemblyInfo.cache
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/appsettings.Development.json
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/appsettings.json
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/ToDoListApi
@@ -14,9 +7,18 @@
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/ToDoListApi.pdb
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.csproj.AssemblyReference.cache
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.AssemblyInfoInputs.cache
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.AssemblyInfo.cs
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.csproj.CoreCompileInputs.cache
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.MvcApplicationPartsAssemblyInfo.cs
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.MvcApplicationPartsAssemblyInfo.cache
+/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.sourcelink.json
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/staticwebassets.build.json
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/staticwebassets.development.json
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/staticwebassets/msbuild.ToDoListApi.Microsoft.AspNetCore.StaticWebAssets.props
@@ -31,5 +33,3 @@
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.pdb
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.genruntimeconfig.cache
 /Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ref/ToDoListApi.dll
-/Users/timothyye/Projects/ToDoListApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
-/Users/timothyye/Projects/ToDoListApi/obj/Debug/net8.0/ToDoListApi.sourcelink.json

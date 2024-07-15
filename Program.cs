@@ -32,10 +32,10 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Allows HTTP to work
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    // app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDoList API v1"));
 }
