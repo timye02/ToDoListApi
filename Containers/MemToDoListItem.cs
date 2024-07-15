@@ -10,18 +10,7 @@ namespace ToDoListApi.Containers
         {
             _toDoListContainer = toDoListContainer;
         }
-
-        // // Returns the 
-        // public ToDoListItem SearchByItem_Id(int id)
-        // {
-        //     foreach (var list in _toDoListContainer.GetAll())
-        //     {
-        //         var item = list.Items.FirstOrDefault(i => i.Id == id);
-        //         if (item != null) return item;
-        //     }
-        //     return null;
-        // }
-
+        
         // Returns the item object at id and listId
         public ToDoListItem GetByList_Item_Id(int id, int listId)
         {
@@ -45,14 +34,27 @@ namespace ToDoListApi.Containers
             }
         }
 
-        public void Update(ToDoListItem item, int listId)
+        public ToDoListItem Complete(int id, int listId)
+        {
+            var existingItem = GetByList_Item_Id(id, listId);
+            if (existingItem != null)
+            {
+                existingItem.IsCompleted = true;
+                return existingItem;
+            }
+            return null;
+
+        }
+        public ToDoListItem Update(ToDoListItem item, int listId)
         {
             var existingItem = GetByList_Item_Id(item.Id, listId);
             if (existingItem != null)
             {
                 existingItem.Description = item.Description;
                 existingItem.IsCompleted = item.IsCompleted;
+                return existingItem;
             }
+            return null;
         }
 
         public void Delete(int id, int listId)

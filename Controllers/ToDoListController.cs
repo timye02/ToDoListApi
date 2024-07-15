@@ -28,6 +28,8 @@ namespace ToDoListApi.Controllers
         {
             var list = _container.GetByList_Id(id);
             if (list == null) return NotFound();
+
+            // Returns the To-Do list
             return Ok(list);
         }
 
@@ -38,6 +40,8 @@ namespace ToDoListApi.Controllers
         {
             // maybe add a title to the list
             _container.Add(list);
+
+            // Returns the newly created To-Do list
             return CreatedAtAction(nameof(Get), new { id = list.Id }, list);
         }
 
@@ -47,6 +51,8 @@ namespace ToDoListApi.Controllers
         {
             if (id != list.Id) return BadRequest();
             _container.Update(list);
+
+            // Returns the updated To-Do list
             return Ok(_container.GetByList_Id(id));
         }
 
@@ -55,6 +61,8 @@ namespace ToDoListApi.Controllers
         public ActionResult Delete(int id)
         {
             _container.Delete(id);
+
+            // Returns the rest of the lists
             return Ok(_container.GetAll());
         }
     }
